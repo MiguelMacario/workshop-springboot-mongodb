@@ -1,5 +1,6 @@
 package com.miguelmacario.workshopmongo.resources;
 
+import com.miguelmacario.workshopmongo.domain.Post;
 import com.miguelmacario.workshopmongo.domain.User;
 import com.miguelmacario.workshopmongo.dto.UserDTO;
 import com.miguelmacario.workshopmongo.services.UserService;
@@ -52,6 +53,12 @@ public class UserResources {
         obj.setId(id);
         obj = userService.update(obj);
         return ResponseEntity.noContent().build();
+    }
+
+    @GetMapping(value = "/{id}/posts")
+    public ResponseEntity<List<Post>> findPost(@PathVariable String id){
+        User obj = userService.findById(id);
+        return ResponseEntity.ok().body(obj.getPosts());
     }
 
 }
