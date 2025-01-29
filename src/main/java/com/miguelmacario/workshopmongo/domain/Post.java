@@ -1,5 +1,6 @@
 package com.miguelmacario.workshopmongo.domain;
 
+import com.miguelmacario.workshopmongo.dto.AuthorDTO;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.io.Serial;
@@ -16,12 +17,12 @@ public class Post implements Serializable {
     private LocalDate date;
     private String title;
     private String body;
-    private User author;
+    private AuthorDTO author;
 
     public Post() {
     }
 
-    public Post(String id, String body, String title, LocalDate date, User author) {
+    public Post(String id, String body, String title, LocalDate date, AuthorDTO author) {
         this.id = id;
         this.body = body;
         this.title = title;
@@ -61,11 +62,11 @@ public class Post implements Serializable {
         this.body = body;
     }
 
-    public User getAuthor() {
+    public AuthorDTO getAuthor() {
         return author;
     }
 
-    public void setAuthor(User author) {
+    public void setAuthor(AuthorDTO author) {
         this.author = author;
     }
 
